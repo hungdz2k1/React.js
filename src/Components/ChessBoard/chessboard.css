@@ -1,0 +1,22 @@
+.chessBoard {
+  width: max-content;
+  border: 1px solid black;
+}
+
+.row {
+  display: flex;
+}
+
+.black {
+  background-color: black;
+}
+
+.white {
+  background-color: ghostwhite;
+}
+
+.chess-app {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
