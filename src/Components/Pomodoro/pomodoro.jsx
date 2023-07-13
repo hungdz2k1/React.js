@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
+import { Button, Form, Input, Layout, Typography } from 'antd';
 import "./pomodoro.css";
+
+const { Title, Text } = Typography;
+const { Header, Content } = Layout;
 
 function Pomodoro() {
   const [workingTime, setWorkingTime] = useState(25);
@@ -54,19 +58,19 @@ function Pomodoro() {
     setShowSettings(!showSettings);
   };
 
-const handleWorkingTimeChange = e => {
-  const value = parseInt(e.target.value);
-  if (value >= 1) {
-    setWorkingTime(value);
-  }
-};
+  const handleWorkingTimeChange = e => {
+    const value = parseInt(e.target.value);
+    if (value >= 1) {
+      setWorkingTime(value);
+    }
+  };
 
-const handleRelaxingTimeChange = e => {
-  const value = parseInt(e.target.value);
-  if (value >= 1) {
-    setRelaxingTime(value);
-  }
-};
+  const handleRelaxingTimeChange = e => {
+    const value = parseInt(e.target.value);
+    if (value >= 1) {
+      setRelaxingTime(value);
+    }
+  };
 
   const formatTime = time => {
     const minutes = Math.floor(time / 60).toString().padStart(2, '0');
@@ -75,31 +79,51 @@ const handleRelaxingTimeChange = e => {
   };
 
   return (
-    <div className="pomodoro">
-      <h1>Pomodoro</h1>
-      <div className='vietnam-time'>{vietnamTime}</div>
-      <div className="timer">
-        <span>{isWorking ? 'Working ' : 'Relaxing '}</span>
-        <span>{formatTime(currentTime)}</span>
-      </div>
-      <div className="buttons">
-        <button className='pomodoro__button' onClick={handleStartStopClick}>{isRunning ? 'Pause' : 'Start'}</button>
-        <button className='pomodoro__button' onClick={handleResetClick}>Reset</button>
-        <button className='pomodoro__button' onClick={handleSettingsClick}>Settings</button>
-      </div>
-      {showSettings && (
-        <form>
-          <div>
-            <label htmlFor="workingTime">Working Time: </label>
-            <input id="workingTime" type="number" value={workingTime} onChange={handleWorkingTimeChange} />
-          </div>
-          <div>
-            <label htmlFor="relaxingTime">Relaxing Time: </label>
-            <input id="relaxingTime" type="number" value={relaxingTime} onChange={handleRelaxingTimeChange} />
-          </div>
-        </form>
-      )}
-    </div>
+    <Layout className="pomodoro">
+      <Header className="pomodoro__header header--white" style={{flexDirection: 'column'}}>
+        <Title style={{marginBottom: '0'}} level={2}>Pomodoro</Title>
+        <Text className='vietnam-time' style={{fontSize: '1.4rem'}}>{vietnamTime}</Text>
+      </Header>
+      <Content className="pomodoro__content">
+        <div className="pomodoro__timer">
+          <Text className="pomodoro__timer-label" style={{fontSize: '1.2rem'}}>
+            {isWorking ? 'Working ' : 'Relaxing '}
+          </Text>
+          <Text className="pomodoro__timer-time" style={{fontSize: '1.2rem'}}>
+            {formatTime(currentTime)}
+          </Text>
+        </div>
+        <div className="pomodoro__buttons">
+          <Button className="pomodoro__button" type="primary" onClick={handleStartStopClick}>
+            {isRunning ? 'Pause' : 'Start'}
+          </Button>
+          <Button className="pomodoro__button" onClick={handleResetClick}>
+            Reset
+          </Button>
+          <Button className="pomodoro__button"onClick={handleSettingsClick}>
+            Settings
+          </Button>
+        </div>
+        {showSettings && (
+          <Form className="pomodoro__settings">
+            <Form.Item label="Working Time">
+              <Input
+                type="number"
+                value={workingTime}
+                onChange={handleWorkingTimeChange}
+              />
+            </Form.Item>
+            <Form.Item label="Relaxing Time">
+              <Input
+                type="number"
+                value={relaxingTime}
+                onChange={handleRelaxingTimeChange}
+              />
+            </Form.Item>
+          </Form>
+        )}
+      </Content>
+    </Layout>
   );
 }
 

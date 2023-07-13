@@ -54,7 +54,7 @@ const handleSizeChange = (event) => {
   return (
     <div className="chess-app">
       <div>
-        <label htmlFor="size">Nhập độ dài bàn cờ:</label>
+        <label htmlFor="size">Number of chess squares</label>
         <input
           type="number"
           id="size"
@@ -66,7 +66,7 @@ const handleSizeChange = (event) => {
         />
       </div>
       <div>
-        <label htmlFor="boxSize">Nhập độ dài của ô cờ:</label>
+        <label htmlFor="boxSize">Checkerboard length:</label>
         <input
           type="number"
           id="boxSize"
@@ -78,7 +78,7 @@ const handleSizeChange = (event) => {
         />
       </div>
       <div>
-        <label htmlFor="evenColor">Màu sắc ô chẵn:</label>
+        <label htmlFor="evenColor">Even cell color:</label>
         <input
           type="color"
           id="evenColor"
@@ -88,7 +88,7 @@ const handleSizeChange = (event) => {
         />
       </div>
       <div>
-        <label htmlFor="oddColor">Màu sắc ô lẻ:</label>
+        <label htmlFor="oddColor">Odd cell color:</label>
         <input
           type="color"
           id="oddColor"

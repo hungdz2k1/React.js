@@ -1,17 +1,26 @@
 import { useState } from 'react';
 import "./caculator.css";
+import * as math from 'mathjs';
+import { Modal } from 'antd';
 
-function Caculator() {
+function Calculator() {
   const [calc, setCalc] = useState("");
-  const [result, setResult] = useState("");
   const [lastOperator, setLastOperator] = useState(null);
-  console.log(result);
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+  
   const ops = ['/', '*', '-', '+', '.'];
 
   const createDigits = () => {
     const digits = [];
-
     for (let i = 1; i < 10; i++) {
       digits.push(<button onClick={() => updateCalc(i.toString())} key={i}>{i}</button>);
     }
@@ -21,7 +30,7 @@ function Caculator() {
 
   const updateCalc = (value) => {
     if (value === "+" || value === "-" || value === "*" || value === "/") {
-      if (calc === "" || calc.slice(-1) === "+" || calc.slice(-1) === "-" || calc.slice(-1) === "*" || calc.slice(-1) === "/") {
+      if (calc === "" || ops.includes(calc.slice(-1))) {
         setCalc(calc.slice(0, -1) + value);
       } else {
         setCalc(calc + value);
@@ -29,33 +38,29 @@ function Caculator() {
       setLastOperator(value);
     } else {
       setCalc(calc + value);
-    }
-
-    if (!ops.includes(value)) {
-      setResult(parseFloat(calc + value).toString());
+      setLastOperator(null);
     }
   }
 
   const calculate = () => {
-    const value = eval(calc);
-    setCalc(value.toString());
-    setResult("");
-    setLastOperator(null);
+    try {
+      const value = math.evaluate(calc);
+      setCalc(value.toString());
+    } catch (error) {
+      showModal(true);
+    }
   }
 
   const deleteLast = () => {
-    const value = calc.slice(0, -1);
-    setCalc(value);
-    if (value) {
-      setResult(parseFloat(value).toString());
-    } else {
-      setResult("");
+    if (calc.length > 0) {
+      const value = calc.slice(0, -1);
+      setCalc(value);
+      setLastOperator(null);
     }
   }
 
   const clearAll = () => {
     setCalc("");
-    setResult("");
     setLastOperator(null);
   }
 
@@ -66,7 +71,6 @@ function Caculator() {
 
     const value = parseFloat(calc);
     setCalc((-1 * value).toString());
-    setResult((-1 * value).toString());
   }
 
   return ( 
@@ -79,7 +83,7 @@ function Caculator() {
         <div className="operators">
           <button className={lastOperator === "/" ? "active" : ""} onClick={() => updateCalc('/')}>/</button>
           <button className={lastOperator === "*" ? "active" : ""} onClick={() => updateCalc('*')}>x</button>
-          <button className={lastOperator === "-" ? "active" : ""} onClick={() => updateCalc('-')}>-</button>
+          <button className={lastOperator === "-" ? "active" : ""} onClick={() =>updateCalc('-')}>-</button>
           <button className={lastOperator === "+" ? "active" : ""} onClick={() => updateCalc('+')}>+</button>
         </div>
 
@@ -96,8 +100,12 @@ function Caculator() {
           <button onClick={calculate}>=</button>
         </div>
       </div>
+
+      <Modal title="Lỗi" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+        <p>Vui lòng nhập giá trị hợp lê</p>
+      </Modal>
     </div>
   );
 }
 
-export default Caculator;
+export default Calculator;

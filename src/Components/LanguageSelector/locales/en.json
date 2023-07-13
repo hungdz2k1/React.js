@@ -1,0 +1,13 @@
+{
+  "app": {
+    "footer": "Ant Design ©2023 Created by Ant UED"
+  },
+  "menu": {
+    "chessboard": "Chessboard",
+    "calculator": "Calculator",
+    "currency": "Currency",
+    "pomodoro": "Pomodoro",
+    "helloworld": "HelloWorld",
+    "quote": "Quote"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "app": {
+    "footer": "Ant Design ©2023 Được tạo bởi Ant UED"
+  },
+  "menu": {
+    "chessboard": "Bàn cờ vua",
+    "calculator": "Máy tính",
+    "currency": "Chuyển đổi tiền tệ",
+    "pomodoro": "Pomodoro",
+    "helloworld": "Xin chào thế giới",
+    "quote": "Trích dẫn"
+  }
+}

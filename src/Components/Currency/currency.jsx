@@ -1,3 +1,4 @@
+import {SwapOutlined} from "@ant-design/icons";
 import { useState } from "react";
 import "./currency.css";
 
@@ -46,7 +47,7 @@ const CurrencyConverter = () => {
         </label>
       </div>
       <button onClick={handleToggle}>
-        {isUsdToVnd ? "Convert to VND" : "Convert to USD"}
+        <SwapOutlined />
       </button>
     </div>
   );

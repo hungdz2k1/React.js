@@ -1,13 +1,12 @@
 .ant-layout-header {
-  padding-left: 24px !important;
-  padding-right: 24px !important;
+  padding-left: 8px !important;
+  padding-right: 8px !important;
 }
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: orange;
 }
 
 .sider-button {
@@ -15,13 +14,48 @@
 }
 
 .header-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin: 0 auto;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-right: auto;
+  margin-left: 0.25em;
+  color: #00d5fc;
 }
 
-.ant-layout-content {
+.mini-apps {
+  margin-left: 2em;
+  margin-top: 2em;
+}
+
+.flag {
+  width: 25px;
+  height: 25px;
+}
+
+.logo-sider {
+  height: 64px;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 24px;
+  margin: 0 4px;
+}
+
+a {
+  color: #111;
+  font-weight: 500;
+}
+
+.ant-select-selector {
+  border: unset !important;
+  box-shadow: unset !important;
+}
+
+.logo {
+  animation: spin 5s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
 }
