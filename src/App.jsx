@@ -106,7 +106,7 @@ function App() {
                   <MenuOutlined />
                 </Button>
                 <div style={{display: 'flex',alignItems: 'center', gap: '0.5em'}}>
-                  <AntSwitch checked={theme === "dark"} onChange={toggleTheme} checkedChildren="Dark" unCheckedChildren="Light" />
+                  <AntSwitch checked={theme === "dark"} onChange={toggleTheme} checkedChildren={t("switch.dark")} unCheckedChildren={t("switch.light")} />
                   <LanguageSelector />
                 </div>
               </Header>

@@ -9,5 +9,42 @@
     "pomodoro": "Pomodoro",
     "helloworld": "HelloWorld",
     "quote": "Quote"
+  },
+  "switch": {
+    "dark": "Dark",
+    "light": "Light"
+  },
+  "modal": { 
+    "title": "Error",
+    "content": "Please enter a valid value"
+  },
+  "chessboard": {
+    "number": "Number of chess squares",
+    "length": "Checkerboard length",
+    "even": "Even cell color",
+    "odd": "Odd cell color"
+   },
+   "currency": {
+    "title": "Currency converter"
+   },
+   "quote": {
+    "number": "Number of quotes",
+    "get": "Get Quotes"
+   },
+   "helloworld": {
+    "title": "Input Form",
+    "enter": "Enter the text",
+    "entered": "You entered"
+  },
+  "pomodoro": {
+    "title": "Pomodoro",
+    "working": "Working",
+    "relaxing": "Relaxing",
+    "pause": "Pause",
+    "start": "Start",
+    "reset": "Reset",
+    "settings": "Settings",
+    "workingtime": "Working time",
+    "relaxingtime": "Relaxing time"
   }
 }

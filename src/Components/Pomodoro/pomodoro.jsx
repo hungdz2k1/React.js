@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Button, Form, Input, Layout, Typography } from 'antd';
 import "./pomodoro.css";
+import { useTranslation } from "react-i18next";
+
 
 const { Title, Text } = Typography;
 const { Header, Content } = Layout;
 
 function Pomodoro() {
+  const { t } = useTranslation();
   const [workingTime, setWorkingTime] = useState(25);
   const [relaxingTime, setRelaxingTime] = useState(5);
   const [currentTime, setCurrentTime] = useState(25 * 60);
@@ -81,13 +84,13 @@ function Pomodoro() {
   return (
     <Layout className="pomodoro">
       <Header className="pomodoro__header header--white" style={{flexDirection: 'column'}}>
-        <Title style={{marginBottom: '0'}} level={2}>Pomodoro</Title>
+        <Title style={{marginBottom: '0'}} level={2}>{t("pomodoro.title")}</Title>
         <Text className='vietnam-time' style={{fontSize: '1.4rem'}}>{vietnamTime}</Text>
       </Header>
       <Content className="pomodoro__content">
         <div className="pomodoro__timer">
           <Text className="pomodoro__timer-label" style={{fontSize: '1.2rem'}}>
-            {isWorking ? 'Working ' : 'Relaxing '}
+            {isWorking ? t("pomodoro.working") : t("pomodoro.relaxing")}
           </Text>
           <Text className="pomodoro__timer-time" style={{fontSize: '1.2rem'}}>
             {formatTime(currentTime)}
@@ -95,25 +98,25 @@ function Pomodoro() {
         </div>
         <div className="pomodoro__buttons">
           <Button className="pomodoro__button" type="primary" onClick={handleStartStopClick}>
-            {isRunning ? 'Pause' : 'Start'}
+            {isRunning ? t("pomodoro.pause") : t("pomodoro.start")}
           </Button>
           <Button className="pomodoro__button" onClick={handleResetClick}>
-            Reset
+            {t("pomodoro.reset")}
           </Button>
           <Button className="pomodoro__button"onClick={handleSettingsClick}>
-            Settings
+            {t("pomodoro.settings")}
           </Button>
         </div>
         {showSettings && (
           <Form className="pomodoro__settings">
-            <Form.Item label="Working Time">
+            <Form.Item label={t("pomodoro.workingtime")}>
               <Input
                 type="number"
                 value={workingTime}
                 onChange={handleWorkingTimeChange}
               />
             </Form.Item>
-            <Form.Item label="Relaxing Time">
+            <Form.Item label={t("pomodoro.relaxingtime")}>
               <Input
                 type="number"
                 value={relaxingTime}

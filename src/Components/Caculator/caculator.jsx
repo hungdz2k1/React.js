@@ -2,8 +2,10 @@ import { useState } from 'react';
 import "./caculator.css";
 import * as math from 'mathjs';
 import { Modal } from 'antd';
+import { useTranslation } from "react-i18next";
 
 function Calculator() {
+  const { t } = useTranslation();
   const [calc, setCalc] = useState("");
   const [lastOperator, setLastOperator] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -101,8 +103,8 @@ function Calculator() {
         </div>
       </div>
 
-      <Modal title="Lỗi" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        <p>Vui lòng nhập giá trị hợp lê</p>
+      <Modal title={t("modal.title")} open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+        <p>{t("modal.content")}</p>
       </Modal>
     </div>
   );

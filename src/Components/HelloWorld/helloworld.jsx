@@ -1,29 +1,29 @@
 import { useState } from 'react';
 import './helloworld.css';
+import { useTranslation } from "react-i18next";
+
 
 function HelloWorld() {
+  const { t } = useTranslation();
   const [inputValue, setInputValue] = useState('');
-
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(`You entered: ${inputValue}`);
   };
 
   return (
     <div className='hello-world'>
-      <h1>Input Form</h1>
+      <h1 style={{paddingBottom: '1em'}}>{t("helloworld.title")}</h1>
       <form onSubmit={handleSubmit}>
         <label>
-          Enter a value:
+          {t("helloworld.enter")}:
           <input type="text" value={inputValue} onChange={handleInputChange} />
         </label>
       </form>
       <div>
-        <label>You entered: </label>{inputValue}
+        <label>{t("helloworld.entered")}:</label>{inputValue}
       </div>
     </div>
   );

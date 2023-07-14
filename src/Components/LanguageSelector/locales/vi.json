@@ -9,5 +9,42 @@
     "pomodoro": "Pomodoro",
     "helloworld": "Xin chào thế giới",
     "quote": "Trích dẫn"
+  },
+    "switch": {
+    "dark": "Tối",
+    "light": "Sáng"
+  },
+    "modal": { 
+    "title": "Lỗi",
+    "content": "Vui lòng nhập giá trị hợp lệ"
+  },
+  "chessboard": {
+    "number": "Nhập vào số ô cờ",
+    "length": "Nhập vào độ dài ô cờ",
+    "even": "Màu sắc ô lẻ",
+    "odd": "Màu sắc ô chẵn"
+   },
+    "currency": {
+    "title": "Chuyển đổi tiền tệ"
+   },
+   "quote": {
+    "number": "Nhập vào số trích dẫn",
+    "get": "Lấy"
+   },
+   "helloworld": {
+    "title": "Biểu mẫu",
+    "enter": "Nhập vào đoạn văn",
+    "entered": "Bạn đã nhập"
+  },
+  "pomodoro": {
+    "title": "Pomodoro",
+    "working": "Làm việc",
+    "relaxing": "Giải trí",
+    "pause": "Dừng lại",
+    "start": "Bắt đầu",
+    "reset": "Đặt lại",
+    "settings": "Cài đặt",
+    "workingtime": "Thời gian làm việc",
+    "relaxingtime":"Thời gian giải trí"
   }
 }

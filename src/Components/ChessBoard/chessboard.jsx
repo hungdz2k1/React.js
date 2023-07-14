@@ -1,7 +1,10 @@
 import "./chessboard.css";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+
 
 export default function ChessBoard() {
+  const { t } = useTranslation();
   const [size, setSize] = useState(8);
   const [boxSize, setBoxSize] = useState(50);
   const [chessBoard, setChessBoard] = useState([]);
@@ -54,7 +57,7 @@ const handleSizeChange = (event) => {
   return (
     <div className="chess-app">
       <div>
-        <label htmlFor="size">Number of chess squares</label>
+        <label htmlFor="size">{t("chessboard.number")}:</label>
         <input
           type="number"
           id="size"
@@ -66,7 +69,7 @@ const handleSizeChange = (event) => {
         />
       </div>
       <div>
-        <label htmlFor="boxSize">Checkerboard length:</label>
+        <label htmlFor="boxSize">{t("chessboard.length")}:</label>
         <input
           type="number"
           id="boxSize"
@@ -78,7 +81,7 @@ const handleSizeChange = (event) => {
         />
       </div>
       <div>
-        <label htmlFor="evenColor">Even cell color:</label>
+        <label htmlFor="evenColor">{t("chessboard.even")}:</label>
         <input
           type="color"
           id="evenColor"
@@ -88,7 +91,7 @@ const handleSizeChange = (event) => {
         />
       </div>
       <div>
-        <label htmlFor="oddColor">Odd cell color:</label>
+        <label htmlFor="oddColor">{t("chessboard.odd")}:</label>
         <input
           type="color"
           id="oddColor"
