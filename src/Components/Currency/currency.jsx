@@ -26,6 +26,8 @@ const CurrencyConverter = () => {
   };
 
   return (
+    <>
+    <h1 style={{fontSize: '2rem', textAlign: 'left', marginBottom: '1em'}}>Currency Converter</h1>
     <div className="currency-converter">
       <h2>{t("currency.title")}</h2>
       <div className="input-group">
@@ -58,6 +60,7 @@ const CurrencyConverter = () => {
         <SwapOutlined />
       </button>
     </div>
+    </>
   );
 };
 
