@@ -82,6 +82,8 @@ function Pomodoro() {
   };
 
   return (
+    <>
+    <h1 style={{fontSize: '2rem', textAlign: 'left', marginBottom: '1em'}}>Pomodoro</h1>
     <Layout className="pomodoro">
       <Header className="pomodoro__header header--white" style={{flexDirection: 'column'}}>
         <Title style={{marginBottom: '0'}} level={2}>{t("pomodoro.title")}</Title>
@@ -127,6 +129,7 @@ function Pomodoro() {
         )}
       </Content>
     </Layout>
+</>
   );
 }
 

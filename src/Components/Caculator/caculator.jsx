@@ -77,8 +77,9 @@ function Calculator() {
 
   return ( 
     <div className="App">
+      <h1 style={{fontSize: '2rem', textAlign: 'left', marginBottom: '1em'}}>Caculator</h1>
       <div className="calculator">
-        <div className="display">
+        <div style={{overflowX: 'auto'}} className="display">
           {calc || 0}
         </div>
 

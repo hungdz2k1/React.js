@@ -15,7 +15,7 @@ function HelloWorld() {
 
   return (
     <div className='hello-world'>
-      <h1 style={{paddingBottom: '1em'}}>{t("helloworld.title")}</h1>
+      <h1 style={{fontSize: '2rem',paddingBottom: '1em'}}>{t("helloworld.title")}</h1>
       <form onSubmit={handleSubmit}>
         <label>
           {t("helloworld.enter")}:

@@ -1,8 +1,7 @@
-import {SwapOutlined} from "@ant-design/icons";
+import { SwapOutlined } from "@ant-design/icons";
 import { useState } from "react";
 import "./currency.css";
 import { useTranslation } from "react-i18next";
-
 
 const CurrencyConverter = () => {
   const { t } = useTranslation();
@@ -31,7 +30,10 @@ const CurrencyConverter = () => {
       <h2>{t("currency.title")}</h2>
       <div className="input-group">
         <label>
-          {isUsdToVnd ? "USD" : "VND"}
+          <select value={isUsdToVnd ? "USD" : "VND"} onChange={(e) => setIsUsdToVnd(e.target.value === "USD")}>
+            <option value="USD">USD</option>
+            <option value="VND">VND</option>
+          </select>
           <input
             type="number"
             min="0"
@@ -40,7 +42,10 @@ const CurrencyConverter = () => {
           />
         </label>
         <label>
-          {isUsdToVnd ? "VND" : "USD"}
+          <select value={isUsdToVnd ? "VND" : "USD"} onChange={(e) => setIsUsdToVnd(e.target.value === "USD")}>
+            <option value="VND">VND</option>
+            <option value="USD">USD</option>
+          </select>
           <input
             type="number"
             min="0"

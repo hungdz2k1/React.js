@@ -56,6 +56,7 @@ const handleSizeChange = (event) => {
 
   return (
     <div className="chess-app">
+      <h1 style={{fontSize: '2rem', textAlign: 'left'}}>Chessboard</h1>
       <div>
         <label htmlFor="size">{t("chessboard.number")}:</label>
         <input

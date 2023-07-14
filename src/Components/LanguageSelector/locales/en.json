@@ -16,7 +16,8 @@
   },
   "modal": { 
     "title": "Error",
-    "content": "Please enter a valid value"
+    "content": "Can't get quotes",
+    "authError": "Can't get quotes because of auth error"
   },
   "chessboard": {
     "number": "Number of chess squares",

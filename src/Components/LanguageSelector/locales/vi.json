@@ -16,7 +16,9 @@
   },
     "modal": { 
     "title": "Lỗi",
-    "content": "Vui lòng nhập giá trị hợp lệ"
+    "content": "Không lấy được quotes",
+    "authError": "Không lấy được quotes vì chưa xác thực"
+
   },
   "chessboard": {
     "number": "Nhập vào số ô cờ",
