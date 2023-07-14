@@ -18,7 +18,7 @@ function QuoteForm() {
   };
 
   return (
-    <div>
+    <div style={{overflow: 'hidden'}}>
       <Form style={{flexDirection: 'row',alignItems: 'baseline',gap: '1em'}} onFinish={handleFormSubmit}>
         <Form.Item label="Number of quotes" name="num">
           <Input type="number" min={1} />
@@ -32,8 +32,8 @@ function QuoteForm() {
       {quoteList.length > 0 && (
         <Row gutter={16} className="card-container">
           {quoteList.map((quote, index) => (
-            <Col span={8} key={index}>
-              <Card style={{marginBottom: '2em'}} title={quote.author}>{quote.quote}</Card>
+            <Col style={{display: 'flex', alignItems: 'stretch',marginBottom: '2em'}} span={8} key={index}>
+              <Card style={{width: '100%'}} title={quote.author}>{quote.quote}</Card>
             </Col>
           ))}
         </Row>
