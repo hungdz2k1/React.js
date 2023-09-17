@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import {
   AppstoreOutlined,
   CalculatorOutlined,
-  MoneyCollectOutlined,
   FormOutlined,
   MenuOutlined,
   ClockCircleOutlined,
@@ -12,7 +11,6 @@ import {
 } from "@ant-design/icons";
 import Pomodoro from "./Components/Pomodoro/pomodoro";
 import Caculator from "./Components/Caculator/caculator";
-import CurrencyConverter from "./Components/Currency/currency";
 import HelloWorld from "./Components/HelloWorld/helloworld";
 import ChessBoard from "./Components/ChessBoard/chessboard";
 import Quote from "./Components/Quote/quote";
@@ -74,21 +72,16 @@ function App() {
               },
               {
                 key: "3",
-                icon: <MoneyCollectOutlined />,
-                label: <Link to={"/currency"}>{t("menu.currency")}</Link>,
-              },
-              {
-                key: "4",
                 icon: <ClockCircleOutlined />,
                 label: <Link to={"/pomodoro"}>{t("menu.pomodoro")}</Link>,
               },
               {
-                key: " 5",
+                key: " 4",
                 icon: <FormOutlined />,
                 label: <Link to={"/helloworld"}>{t("menu.helloworld")}</Link>,
               },
               {
-                key: " 6",
+                key: " 5",
                 icon: <ZhihuOutlined />,
                 label: <Link to={"/quote"}>{t("menu.quote")}</Link>,
               },
@@ -117,9 +110,6 @@ function App() {
                   </Route>
                   <Route path="/caculator">
                     <Caculator />
-                  </Route>
-                  <Route path="/currency">
-                    <CurrencyConverter />
                   </Route>
                   <Route path="/pomodoro">
                     <Pomodoro />
